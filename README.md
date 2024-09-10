@@ -4,6 +4,7 @@
 
 -- 1. What is the total amount each customer spent at the restaurant?
 -- 1. Her bir müşterinin restoranda harcadığı toplam tutar nedir?
+```sql
 select * from members  
 select * from sales  
 select * from menu
