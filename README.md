@@ -121,5 +121,40 @@ Limit 1
 <img width="326" alt="Ekran Resmi 2024-09-10 14 49 50" src="https://github.com/user-attachments/assets/78ac71a3-36b3-4426-8b0d-2ed2c34c86bc">
 
 
+-------- 5. Which item was the most popular for each customer?  
+----------5. Her bir müşteri için en popüler ürün hangisiydi?encok satın aldığı?  
+
+select	customer_id ,  
+		product_name,  
+		Count(s.product_id)  
+
+from sales s   
+join menu mm ON s.product_id = mm.product_id  
+group by 1,2  
+order by 1 ,3 DESC  
+
+<img width="461" alt="Ekran Resmi 2024-09-10 14 52 06" src="https://github.com/user-attachments/assets/7f0bf1f1-575b-45d3-8782-a6498f6d6192">
+
+with tablo1 as(  
+select	customer_id ,  
+		product_name,  
+		Count(s.product_id) as total,  
+		dense_rank()  Over (PARTITION by customer_id order by   Count(s.product_id) DESC ) as rn  
+from sales s   
+join menu mm ON s.product_id = mm.product_id  
+group by 1,2  
+order by 1 ,3 DESC  
+	)  
+	
+	select customer_id,  
+			product_name,  
+			total  
+	from tablo1  
+	where rn= 1   
+
+
+
+
+<img width="461" alt="Ekran Resmi 2024-09-10 14 52 34" src="https://github.com/user-attachments/assets/cdd38cc7-8534-4e7c-b769-7f6e73f21633">
 
 
