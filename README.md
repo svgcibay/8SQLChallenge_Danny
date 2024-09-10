@@ -22,10 +22,11 @@ order by 2 DESC;
 -- 2. How many days has each customer visited the restaurant?
 -- 2. Her bir müşteri restoranı kaç gün ziyaret etti?
 
-select customer_id, COUNT(distinct order_date)--Distinct KULLANDIK!
-from sales
-group by 1
-order by 2 DESC
+select customer_id, COUNT(distinct order_date)--Distinct KULLANDIK!  
+from sales  
+group by 1  
+order by 2 DESC  
+
 
 
 <img width="357" alt="Ekran Resmi 2024-09-10 14 40 22" src="https://github.com/user-attachments/assets/1c436a8c-da15-4489-bf3d-c743f2e21032">
